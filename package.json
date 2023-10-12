@@ -6,7 +6,7 @@
   "author": "rishav394",
   "scripts": {
     "test": "echo 'Error: no test specified'",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "populate": "node util/populator.js"
   },
   "license": "ISC",
@@ -18,10 +18,12 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "mongoose": "^5.7.5",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "nodemon": "^3.0.1"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
     "prettier": "^2.1.2"
-  }
+  },
+  "keywords": []
 }
