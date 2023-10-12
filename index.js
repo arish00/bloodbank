@@ -21,15 +21,23 @@ const escapeRegExp = (string) => {
 
 app.use(morgan('dev'));
 
-mongoose.connect(
-  dburi,
-  { useNewUrlParser: true, useCreateIndex: true },
-  (err) => {
-    if (err) throw err;
-    else console.log('Connected to mongoDb');
-  }
-);
+// mongoose.connect(
+//   DBURI,
+//   { useNewUrlParser: true, useCreateIndex: true },
+//   (err) => {
+//     if (err) throw err;
+//     else console.log('Connected to mongoDb');
+//   }
+// );
 
+
+mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 app.use(express.static('public/js'));
 app.use(express.static('public/css'));
 app.use(express.static('public/img'));
